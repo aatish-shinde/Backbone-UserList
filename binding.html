@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>My first backbone application</title>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<h1>User Manager</h1>
+		<hr/>
+		<div class="page" ></div>
+		
+	</div>
+	<div ng-controller="appCtrl">
+		<input type="text" ng-model="myName" />
+
+		<button ng-click="submit(); myName=''">Add Names</button>
+
+		<div ng-repeat="name in names">
+			{{ name }}
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', [])
+
+		app.controller('appCtrl', function($scope){
+
+			$scope.names = ['Atish', 'Aish'];
+
+			$scope.submit = function(){
+
+				$scope.names.push($scope.myName);
+			}
+
+		});
+	</script>
+
+	
+
+</body>
+
+</html>
